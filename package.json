@@ -1,0 +1,31 @@
+{
+  "name": "cliff",
+  "version": "1.0.0",
+  "description": "cliff",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run electron .",
+    "build": "npm-run electron-packager . Cliff --platform=darwin --arch=x64 --version=1.2.2",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukehedger/cliff.git"
+  },
+  "keywords": [
+    "cliff"
+  ],
+  "author": "Luke Hedger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukehedger/cliff/issues"
+  },
+  "homepage": "https://github.com/lukehedger/cliff#readme",
+  "devDependencies": {
+    "electron-packager": "^7.0.4",
+    "electron-prebuilt": "^1.2.2"
+  },
+  "dependencies": {
+    "menubar": "^4.1.1"
+  }
+}
