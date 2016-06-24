@@ -5,6 +5,12 @@
     <title>Cliff</title>
   </head>
   <body>
-    Hello, Cliff!
+    <div id="root"></div>
+    <script>
+      var bundlePath = './dist/bundle.js'
+      var bundleScriptEl = document.createElement('script')
+      bundleScriptEl.src = bundlePath
+      document.currentScript.parentNode.insertBefore(bundleScriptEl, document.currentScript)
+    </script>
   </body>
 </html>

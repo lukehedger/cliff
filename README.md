@@ -7,3 +7,15 @@
 > *I can see all obstacles in my way*
 >
 > -- Jimmy Cliff
+
+### Setup
+
+```
+npm i
+```
+
+### Develop
+
+```
+npm start
+```
