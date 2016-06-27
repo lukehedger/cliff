@@ -4,6 +4,11 @@ const {app} = electron;
 // Module to create native browser window.
 const {BrowserWindow} = electron;
 
+// live reload w/hard reset
+require('electron-reload')(__dirname, {
+  electron: require('electron-prebuilt')
+})
+
 // menubar
 const menubar = require('menubar')
 
