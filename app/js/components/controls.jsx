@@ -1,10 +1,11 @@
 import React from 'react'
+import { Button } from 'css/button.react.css'
 
 const Component = ({ onStart, onStop }) => {
 
   return (
     <div>
-      <button onClick={onStart}>Start</button>
+      <Button onClick={onStart}>Start</Button>
       <button onClick={onStop}>Stop</button>
     </div>
   )

@@ -4,9 +4,9 @@ const CleanPlugin = require('clean-webpack-plugin')
 
 const PATHS = {
   src: path.join(__dirname, '../app/js/app.js'),
-  dist: path.join(__dirname, '../dist')
-  // css: path.join(__dirname, '../app/css'),
-  // img: path.join(__dirname, '../static/img')
+  dist: path.join(__dirname, '../dist'),
+  css: path.join(__dirname, '../app/css'),
+  img: path.join(__dirname, '../static/img')
 }
 
 module.exports = {
@@ -15,6 +15,13 @@ module.exports = {
   output: {
     path: PATHS.dist,
     filename: 'bundle.js'
+  },
+  resolve: {
+    alias: {
+      css: PATHS.css,
+      img: PATHS.img
+    },
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -28,28 +35,25 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
           "presets": ["es2015", "react", "stage-1"],
           cacheDirectory: true
         }
+      },
+      {
+        test: /\.react.css$/,
+        loader: 'react-css-components'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'url',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
       }
-      // {
-      //   test: /\.css$/,
-      //   loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
-      // },
-      // {
-      //   test: /\.(jpe?g|png|gif|svg)$/i,
-      //   loaders: [
-      //     'file?hash=sha512&digest=hex&name=[hash].[ext]',
-      //     'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-      //   ]
-      // }
     ]
   }
-  // postcss: [
-  //   require('postcss-cssnext')
-  // ]
 }

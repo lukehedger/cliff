@@ -1,10 +1,11 @@
 import React from 'react'
+import { Logo } from 'css/logo.react.css'
 
 const Component = () => {
 
   return (
     <div>
-      <h1>Cliff!!</h1>
+      <Logo />
     </div>
   )
 
