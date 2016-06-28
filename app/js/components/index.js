@@ -1,9 +1,9 @@
+import controls from './controls'
 import header from './header'
-import footer from './footer'
-import loader from './loader'
+import timer from './timer'
 
 export {
+  controls,
   header,
-  footer,
-  loader,
+  timer,
 }

@@ -19,3 +19,9 @@ npm i
 ```
 npm start
 ```
+
+### Package
+
+```
+npm run package
+```

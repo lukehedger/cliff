@@ -5,15 +5,17 @@ const {app} = electron;
 const {BrowserWindow} = electron;
 
 // live reload w/hard reset
-require('electron-reload')(__dirname, {
-  electron: require('electron-prebuilt')
-})
+if (process.env.NODE_ENV === 'development') {
+  require('electron-reload')(__dirname, {
+    electron: require('electron-prebuilt')
+  })
+}
 
 // menubar
 const menubar = require('menubar')
 
 // init menubar
-const mb = menubar()
+const mb = menubar({ icon: './static/img/icon.png' })
 
 mb.on('ready', function ready () {
   console.log('app is ready')
@@ -26,13 +28,15 @@ let win;
 
 function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600});
+  win = new BrowserWindow({width: 800, height: 600, icon: './static/img/cliff-icon.png' });
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  win.webContents.openDevTools();
+  if (process.env.NODE_ENV === 'development') {
+    win.webContents.openDevTools()
+  }
 
   // init React DevTools
   // BrowserWindow.addDevToolsExtension('~/Library/Application\ Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.14.11_0')
