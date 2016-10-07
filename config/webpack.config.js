@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const CleanPlugin = require('clean-webpack-plugin')
 
 const PATHS = {
-  src: path.join(__dirname, '../app/js/app.js'),
+  src: path.join(__dirname, '../app/js'),
   dist: path.join(__dirname, '../dist'),
   css: path.join(__dirname, '../app/css'),
   img: path.join(__dirname, '../static/img')
