@@ -1,8 +1,5 @@
 const electron = require('electron')
-// Module to control application life.
-const { app } = electron
-// Module to create native browser window.
-const { BrowserWindow } = electron
+const { app, BrowserWindow } = electron
 
 // live reload w/hard reset
 if (process.env.NODE_ENV === 'development') {
