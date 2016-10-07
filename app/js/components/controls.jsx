@@ -1,12 +1,15 @@
 import React from 'react'
 import { Button } from 'css/button.react.css'
 
-const Component = ({ onStart, onStop }) => {
+const Component = ({ isRunning, onStart, onStop }) => {
 
   return (
     <div>
-      <Button onClick={onStart}>Start</Button>
-      <button onClick={onStop}>Stop</button>
+
+      <button onClick={ isRunning ? onStop : onStart }>
+        { isRunning ? 'Stop' : 'Start' }
+      </button>
+
     </div>
   )
 

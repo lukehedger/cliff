@@ -1,6 +1,7 @@
-const React = require('react')
-
+import React from 'react'
 import * as Components from '../components'
+
+const INTERVAL = 1000
 
 export default class Root extends React.Component {
 
@@ -21,15 +22,15 @@ export default class Root extends React.Component {
 
   startTimer(limit, { title, body }, onComplete) {
 
-    let startedAt = performance.now()
+    const startedAt = Date.now()
 
-    const timer = () => {
-
-      // tick rAF
-			this.timerRequest = requestAnimationFrame(timer)
+    // start timer
+    this.timer = setInterval( () => {
 
       // get time
-			let now = performance.now() - startedAt
+      let now = ( Date.now() - startedAt )
+
+      console.log(now)
 
       // update time
 			this.appState({ now })
@@ -48,41 +49,38 @@ export default class Root extends React.Component {
 
       }
 
-    }
-
-    // start rAF
-		this.timerRequest = requestAnimationFrame(timer)
+    }, INTERVAL)
 
   }
 
   stopTimer() {
 
-    // cancel rAF
-    cancelAnimationFrame(this.timerRequest)
-    this.timerRequest = undefined
+    // cancel timer
+    clearInterval(this.timer)
+    this.timer = undefined
 
     // reset time
     this.appState({ now: 0 })
 
   }
 
-  twentyMinutes() {
+  work() {
 
     // start 20 minute timer
-    this.startTimer(1200000, { title: '20 minutes', body: '20 minutes up!' }, this.twentySeconds.bind(this))
+    this.startTimer(1200000, { title: 'Work is over', body: '20 minutes up! Rest your eyes' }, this.rest.bind(this))
 
   }
 
-  twentySeconds() {
+  rest() {
 
     // start 20 second timer
-    this.startTimer(20000, { title: '20 seconds', body: '20 seconds up!' }, this.twentyMinutes.bind(this))
+    this.startTimer(20000, { title: 'Rest is over', body: '20 seconds up! Back to work' }, this.work.bind(this))
 
   }
 
   render() {
 
-    const startTimer = () => this.twentyMinutes()
+    const startTimer = () => this.work()
     const stopTimer = () => this.stopTimer()
 
     const now = this.appState('now')
@@ -92,7 +90,7 @@ export default class Root extends React.Component {
 
         <Components.header />
         <Components.timer time={now} />
-        <Components.controls onStart={startTimer} onStop={stopTimer} />
+        <Components.controls isRunning={now} onStart={startTimer} onStop={stopTimer} />
 
       </div>
     )
