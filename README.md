@@ -8,6 +8,12 @@
 >
 > -- Jimmy Cliff
 
+## About
+
+Cliff helps you practice the [20-20-20 rule](http://www.labnol.org/software/computer-eye-exercise/14069/) for preventing eye strain - work for 20 minutes, rest for 20 seconds whilst focusing on something 20 feet away.
+
+## Contributing
+
 ### Setup
 
 ```
@@ -25,3 +31,10 @@ npm start
 ```
 npm run package
 ```
+
+## Roadmap
+
+[ ] SFX
+[ ] Style / animation
+[ ] Record cumulative Cliff count
+[ ] Use eye-detection check whether user is working/resting
