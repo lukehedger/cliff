@@ -7,7 +7,7 @@
     "start": "NODE_ENV=development npm-run electron . & npm run develop",
     "develop": "webpack --config config/webpack.config.js --progress --colors --watch",
     "build": "webpack --config config/webpack.config.js",
-    "package": "npm run build && npm-run electron-packager . Cliff --platform=darwin --arch=x64 --version=1.2.2 --icon=static/img/icon.icns --overwrite"
+    "package": "NODE_ENV=production npm run build && npm-run electron-packager . Cliff --platform=darwin --arch=x64 --version=1.2.2 --icon=static/img/icon.icns --overwrite"
   },
   "repository": {
     "type": "git",
