@@ -94,13 +94,17 @@ export default class Root extends React.Component {
     const now = this.appState('now')
     const isResting = this.appState('isResting')
     const isWorking = this.appState('isWorking')
+
     const isRunning = isResting || isWorking
+    const label = isResting ? REST.label : isWorking ? WORK.label : null
+    const limit = isResting ? REST.time : WORK.time
 
     return (
       <div>
 
         <Components.header />
-        <Components.timer time={now} isResting={isResting} isWorking={isWorking} />
+        <Components.label label={label} />
+        <Components.timer limit={limit} time={now} isResting={isResting} isWorking={isWorking} />
         <Components.controls isRunning={isRunning} isResting={isResting} isWorking={isWorking} onStart={startTimer} onStop={stopTimer} />
 
       </div>

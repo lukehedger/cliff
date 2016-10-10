@@ -1,0 +1,10 @@
+Timer {
+  base: div;
+  background: linear-gradient(to top right, #BFCDBB, #F2CBD0 35%, #A8C0C0 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
