@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Components from '../components'
 
-const INTERVAL = 1000
+import { INTERVAL, REST, WORK } from '../constants'
 
 export default class Root extends React.Component {
 
@@ -16,7 +16,7 @@ export default class Root extends React.Component {
 
   componentWillMount() {
 
-    this.appState({ time: 0 })
+    this.appState({ now: 0 })
 
   }
 
@@ -27,10 +27,8 @@ export default class Root extends React.Component {
     // start timer
     this.timer = setInterval( () => {
 
-      // get time
-      let now = ( Date.now() - startedAt )
-
-      console.log(now)
+      // get time -> rounded to nearest 1000 to account for setInterval discrepancies
+      let now = Math.round( ( Date.now() - startedAt ) / 1000 ) * 1000
 
       // update time
 			this.appState({ now })
@@ -66,15 +64,19 @@ export default class Root extends React.Component {
 
   work() {
 
-    // start 20 minute timer
-    this.startTimer(1200000, { title: 'Work is over', body: '20 minutes up! Rest your eyes' }, this.rest.bind(this))
+    const { time, title, body } = WORK
+
+    // start work timer
+    this.startTimer(time, { title, body }, this.rest.bind(this))
 
   }
 
   rest() {
 
-    // start 20 second timer
-    this.startTimer(20000, { title: 'Rest is over', body: '20 seconds up! Back to work' }, this.work.bind(this))
+    const { time, title, body } = REST
+
+    // start rest timer
+    this.startTimer(time, { title, body }, this.work.bind(this))
 
   }
 
