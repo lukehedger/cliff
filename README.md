@@ -34,7 +34,6 @@ npm run package
 
 ## Roadmap
 
-- [ ] SFX
-- [ ] Style / animation
+- [x] Style
 - [ ] Record cumulative Cliff count
 - [ ] Use eye-detection check whether user is working/resting
