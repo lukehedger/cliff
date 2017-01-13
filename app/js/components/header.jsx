@@ -1,14 +1,6 @@
 import React from 'react'
 import { Logo } from 'css/logo.react.css'
 
-const Component = () => {
+const Header = () => ( <Logo /> )
 
-  return (
-    <div>
-      <Logo />
-    </div>
-  )
-
-}
-
-export default Component
+export default Header

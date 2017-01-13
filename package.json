@@ -1,13 +1,21 @@
 {
-  "name": "cliff",
+  "name": "Cliff",
   "version": "1.0.0",
-  "description": "cliff",
+  "description": "Cliff helps you practice the 20-20-20 rule for preventing eye strain",
   "main": "index.js",
+  "build": {
+    "appId": "cliff",
+    "mac": {
+      "category": "public.app-category.healthcare-fitness",
+      "icon": "static/img/icon"
+    }
+  },
   "scripts": {
     "start": "NODE_ENV=development npm-run electron . & npm run develop",
     "develop": "webpack --config config/webpack.config.js --progress --colors --watch",
     "build": "webpack --config config/webpack.config.js",
-    "package": "NODE_ENV=production npm run build && npm-run electron-packager . Cliff --platform=darwin --arch=x64 --version=1.2.2 --icon=static/img/icon.icns --overwrite"
+    "pack": "build --dir",
+    "dist": "NODE_ENV=production npm run build && build"
   },
   "repository": {
     "type": "git",
@@ -30,7 +38,8 @@
     "babel-preset-stage-1": "^6.5.0",
     "clean-webpack-plugin": "^0.1.11",
     "css-loader": "^0.23.1",
-    "electron-packager": "^7.0.4",
+    "electron": "^1.4.3",
+    "electron-builder": "^11.2.4",
     "electron-prebuilt": "^1.2.5",
     "electron-reload": "^1.0.0",
     "image-webpack-loader": "^1.8.0",
@@ -39,7 +48,6 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "electron": "^1.4.3",
     "menubar": "^4.1.1",
     "react": "^15.1.0",
     "react-css-components": "^1.0.0",

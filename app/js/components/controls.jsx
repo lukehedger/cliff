@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'css/button.react.css'
 
-const Component = ({ isRunning, onStart, onStop }) => {
+const Controls = ({ isRunning, onStart, onStop }) => {
 
   const variant = { start: !isRunning, stop: isRunning }
 
@@ -15,4 +15,4 @@ const Component = ({ isRunning, onStart, onStop }) => {
 
 }
 
-export default Component
+export default Controls

@@ -9,7 +9,10 @@ export default class Root extends React.Component {
 
   appState(obj) {
 
+    // get state
     if (typeof obj == "string") return this.state[obj]
+
+    // set state
     this.setState(obj)
 
   }
@@ -103,9 +106,25 @@ export default class Root extends React.Component {
       <div>
 
         <Components.header />
-        <Components.label label={label} />
-        <Components.timer limit={limit} time={now} isResting={isResting} isWorking={isWorking} />
-        <Components.controls isRunning={isRunning} isResting={isResting} isWorking={isWorking} onStart={startTimer} onStop={stopTimer} />
+
+        <Components.label
+          label={label}
+        />
+
+        <Components.timer
+          limit={limit}
+          time={now}
+          isResting={isResting}
+          isWorking={isWorking}
+        />
+
+        <Components.controls
+          isRunning={isRunning}
+          isResting={isResting}
+          isWorking={isWorking}
+          onStart={startTimer}
+          onStop={stopTimer}
+        />
 
       </div>
     )

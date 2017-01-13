@@ -29,11 +29,5 @@ npm start
 ### Package
 
 ```
-npm run package
+npm run dist
 ```
-
-## Roadmap
-
-- [x] Style
-- [ ] Record cumulative Cliff count
-- [ ] Use eye-detection check whether user is working/resting

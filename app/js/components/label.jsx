@@ -1,14 +1,6 @@
 import React from 'react'
 import { Label } from 'css/label.react.css'
 
-const Component = ({ label }) => {
+const LabelComponent = ({ label }) => ( <Label>{ label }</Label> )
 
-  return (
-    <Label>
-      { label }
-    </Label>
-  )
-
-}
-
-export default Component
+export default LabelComponent
